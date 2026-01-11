@@ -1,17 +1,22 @@
 {
   "name": "jalil-halim-portfolio",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Portfolio professionnel de Jalil Halim - Expert en Transformation Digitale & IA",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "portfolio",
+    "transformation-digitale",
+    "ia",
+    "next.js",
+    "typescript"
+  ],
+  "author": "Jalil Halim <jalilsanad.halim@gmail.com>",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@types/node": "^25.0.6",
     "@types/react": "^19.2.8",
