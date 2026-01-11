@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0066cc;
-  --color-secondary: #1e3a8a;
-  --color-accent: #f59e0b;
-  --color-magenta: #d946ef;
-  --color-gradient-start: #667eea;
-  --color-gradient-end: #764ba2;
+  /* MBB Color Palette - Professional Consulting Style */
+  --color-primary: #001f3f;      /* Navy Blue - Primary */
+  --color-secondary: #003366;    /* Deep Blue - Secondary */
+  --color-accent: #00509e;       /* Bright Blue - Accent */
+  --color-success: #059669;      /* Emerald Green - Metrics */
+  --color-dark: #1a202c;         /* Dark Gray */
+  --color-light: #f7fafc;        /* Light Gray Background */
 }
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 text-gray-900;
-    background-attachment: fixed;
+    @apply bg-white text-gray-900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   
   * {
@@ -22,90 +23,53 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-28;
   }
   
   .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900;
+    line-height: 1.2;
   }
   
   .heading-2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
-    background: linear-gradient(135deg, #0066cc 0%, #667eea 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900;
+    line-height: 1.3;
   }
   
   .heading-3 {
-    @apply text-2xl md:text-3xl font-bold;
+    @apply text-2xl md:text-3xl font-bold text-gray-900;
   }
   
-  .card {
-    @apply bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-6 
-           hover:shadow-2xl transition-all duration-500 
-           border border-gray-100/50 hover:border-blue-200/50
-           hover:-translate-y-2;
+  .card-mbb {
+    @apply bg-white rounded-none shadow-sm p-8 
+           hover:shadow-md transition-all duration-300
+           border-l-4 border-primary;
   }
   
-  .card-glass {
-    @apply bg-white/60 backdrop-blur-2xl rounded-2xl shadow-2xl p-8
-           border border-white/20 hover:border-blue-300/30
-           transition-all duration-500 hover:-translate-y-2 hover:shadow-blue-500/20;
+  .card-metric {
+    @apply bg-gray-50 rounded-sm p-6 border border-gray-200;
   }
   
   .btn-primary {
-    @apply relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 
-           hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-10 
-           rounded-xl transition-all duration-300 transform hover:scale-105 
-           shadow-lg hover:shadow-2xl hover:shadow-blue-500/50;
+    @apply bg-primary hover:bg-secondary text-white font-semibold py-4 px-10 
+           rounded-none transition-colors duration-200 uppercase tracking-wide text-sm;
   }
   
   .btn-secondary {
-    @apply relative overflow-hidden bg-white/90 backdrop-blur-sm hover:bg-white 
-           text-blue-600 border-2 border-blue-600 font-bold py-4 px-10 
-           rounded-xl transition-all duration-300 transform hover:scale-105 
-           shadow-lg hover:shadow-xl;
+    @apply bg-white hover:bg-gray-50 text-primary border-2 border-primary 
+           font-semibold py-4 px-10 rounded-none transition-colors duration-200 
+           uppercase tracking-wide text-sm;
   }
   
-  .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .divider {
+    @apply h-px bg-gray-200 my-12;
   }
   
-  .animated-gradient {
-    background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #667eea);
-    background-size: 800% 800%;
-    animation: gradientShift 15s ease infinite;
+  .metric-value {
+    @apply text-4xl md:text-5xl font-bold text-primary;
   }
   
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  .floating {
-    animation: floating 3s ease-in-out infinite;
-  }
-  
-  @keyframes floating {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  .glow {
-    @apply shadow-2xl;
-    box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
-  }
-  
-  .text-glow {
-    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  .metric-label {
+    @apply text-sm font-semibold text-gray-600 uppercase tracking-wider;
   }
 }

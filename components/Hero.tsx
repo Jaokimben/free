@@ -1,176 +1,136 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { Mail, Phone, Linkedin, ChevronDown, Sparkles } from 'lucide-react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, TrendingUp, Users, Lightbulb } from 'lucide-react';
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  }
+  const metrics = [
+    { value: '15+', label: 'Années d\'Expérience' },
+    { value: '50+', label: 'Projets Réalisés' },
+    { value: 'x2', label: 'Croissance Moyenne' }
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 }
-    }
-  }
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity
-      }
-    }
-  }
+  const pillars = [
+    { icon: TrendingUp, text: 'Transformation Digitale' },
+    { icon: Users, text: 'Leadership Stratégique' },
+    { icon: Lightbulb, text: 'Innovation & IA' }
+  ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 animated-gradient opacity-30"></div>
+    <section className="relative bg-white overflow-hidden">
+      {/* MBB-Style Header Bar */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary" />
       
-      {/* Floating Orbs */}
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
-      />
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        style={{ animationDelay: '1s' }}
-        className="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
-      />
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        style={{ animationDelay: '2s' }}
-        className="absolute -bottom-8 left-40 w-72 h-72 bg-fuchsia-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
-      />
-
-      <div className="section-container text-center relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-8"
-        >
-          {/* Badge */}
-          <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-purple-200/50">
-              <Sparkles className="w-5 h-5 text-purple-600" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                Portfolio 2025
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Main Title */}
-          <motion.h1 variants={itemVariants} className="heading-1 mb-4 text-glow">
-            Jalil Halim
-          </motion.h1>
-          
-          <motion.div variants={itemVariants} className="relative">
-            <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent">
-              EXPERT EN TRANSFORMATION DIGITALE & IA
-            </div>
-          </motion.div>
-          
-          <motion.p variants={itemVariants} className="text-xl md:text-2xl lg:text-3xl text-gray-700 italic mb-8 max-w-4xl mx-auto font-light">
-            "Votre Partenaire pour Accélérer la Croissance par l'Innovation"
-          </motion.p>
-          
-          {/* Contact Info with Icons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 flex-wrap">
-            <motion.a 
-              href="mailto:jalilsanad.halim@gmail.com"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-white/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-200/50 hover:border-blue-300/50"
-            >
-              <Mail className="w-5 h-5 text-blue-600 group-hover:text-purple-600 transition-colors" />
-              <span className="font-medium text-gray-700 group-hover:text-gray-900">jalilsanad.halim@gmail.com</span>
-            </motion.a>
-            
-            <motion.a 
-              href="tel:+33628071012"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-white/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-200/50 hover:border-blue-300/50"
-            >
-              <Phone className="w-5 h-5 text-blue-600 group-hover:text-purple-600 transition-colors" />
-              <span className="font-medium text-gray-700 group-hover:text-gray-900">06 28 07 10 12</span>
-            </motion.a>
-          </motion.div>
-
-          {/* LinkedIn Button */}
-          <motion.div variants={itemVariants} className="flex justify-center mb-10">
-            <motion.a
-              href="https://linkedin.com/in/jalilhalim"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all"
-            >
-              <Linkedin className="w-6 h-6" />
-              <span className="font-bold text-lg">linkedin.com/in/jalilhalim</span>
-            </motion.a>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary group relative"
-            >
-              <span className="relative z-10 flex items-center gap-2 justify-center">
-                <Sparkles className="w-5 h-5" />
-                Diagnostic Gratuit
-              </span>
-            </motion.a>
-            
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-secondary"
-            >
-              Découvrir mes services
-            </motion.a>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.a
-            href="#value"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
           >
-            <span className="text-sm font-medium">Scroll</span>
-            <ChevronDown className="w-6 h-6" />
-          </motion.a>
-        </motion.div>
+            {/* Subtitle */}
+            <div className="inline-block">
+              <div className="text-sm font-bold tracking-widest uppercase text-accent mb-2">
+                Expert en Transformation Digitale & IA
+              </div>
+              <div className="h-1 w-20 bg-accent" />
+            </div>
+
+            {/* Main Title */}
+            <h1 className="heading-1">
+              Jalil Halim
+            </h1>
+            
+            <div className="text-2xl md:text-3xl font-light text-gray-700 leading-relaxed">
+              Accélérez votre transformation digitale avec une expertise 
+              <span className="font-semibold text-primary"> éprouvée en stratégie, IA et innovation</span>
+            </div>
+
+            {/* Key Pillars */}
+            <div className="flex flex-wrap gap-4 pt-4">
+              {pillars.map((pillar, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + index * 0.1 }}
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200 hover:border-accent transition-colors"
+                >
+                  <pillar.icon className="w-4 h-4 text-accent" />
+                  <span className="text-sm font-semibold text-gray-700">{pillar.text}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 pt-6">
+              <a href="#contact" className="btn-primary group">
+                Prendre Rendez-vous
+                <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="#experience" className="btn-secondary">
+                Découvrir l'Expertise
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Metrics */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
+          >
+            {/* Metrics Grid */}
+            <div className="grid grid-cols-3 gap-6">
+              {metrics.map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className="card-metric text-center"
+                >
+                  <div className="metric-value">{metric.value}</div>
+                  <div className="metric-label mt-2">{metric.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Value Proposition Box */}
+            <div className="border-l-4 border-accent bg-gray-50 p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Approche Structurée & Résultats Mesurables
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  'Diagnostic & cadrage stratégique',
+                  'Architecture & implémentation',
+                  'Conduite du changement & adoption',
+                  'Mesure de performance & optimisation'
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <div className="mt-1 w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                    <span className="text-gray-700 text-sm font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Trust Signals */}
+            <div className="bg-primary text-white p-6">
+              <div className="text-sm font-bold uppercase tracking-wider mb-2">Certifications Elite</div>
+              <div className="text-xs space-y-1 text-gray-300">
+                <div>• PMP, ITIL, TOGAF, AWS & Azure Certified</div>
+                <div>• Executive Coach ICC & Leadership Certifié</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
-  )
+  );
 }

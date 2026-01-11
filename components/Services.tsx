@@ -1,196 +1,190 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { Lightbulb, Settings, Users as UsersIcon, TrendingUp, Briefcase } from 'lucide-react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Compass, 
+  Cpu, 
+  Users, 
+  TrendingUp, 
+  Briefcase,
+  ArrowRight 
+} from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
-      number: '01',
+      icon: Compass,
       title: 'Conseil Stratégique',
-      icon: Lightbulb,
-      items: [
-        'Diagnostic de maturité digitale & roadmap',
-        'Business case, ROI & KPI stratégiques',
-        'Stratégie Data & IA',
-        'Gouvernance & Operating Model'
-      ],
-      gradient: 'from-blue-500 to-cyan-500'
+      description: 'Élaboration de stratégies digitales alignées sur les objectifs business',
+      deliverables: [
+        'Diagnostic & audit digital',
+        'Roadmap de transformation',
+        'Business case & ROI',
+        'Gouvernance & KPIs'
+      ]
     },
     {
-      number: '02',
+      icon: Cpu,
       title: 'Architecture & Technologie',
-      icon: Settings,
-      items: [
-        'Cloud Native & Modernisation Infra',
-        'Stratégie Cybersécurité (CISM, Zero Trust)',
-        'Solutions IA Générative & Automatisation',
-        'FinOps & Optimisation des coûts'
-      ],
-      gradient: 'from-purple-500 to-fuchsia-500'
+      description: 'Conception et mise en œuvre de solutions technologiques robustes',
+      deliverables: [
+        'Architecture d\'entreprise',
+        'Solutions Cloud & IA',
+        'Intégration de systèmes',
+        'Modernisation legacy'
+      ]
     },
     {
-      number: '03',
+      icon: Users,
       title: 'Conduite du Changement',
-      icon: UsersIcon,
-      items: [
-        'Pilotage de programmes complexes',
-        'Méthodologies Agiles (SAFe) à l\'échelle',
-        'Upskilling & Formation des équipes',
-        'Culture d\'innovation & Adoption'
-      ],
-      gradient: 'from-green-500 to-emerald-500'
+      description: 'Accompagnement des équipes pour l\'adoption et la montée en compétence',
+      deliverables: [
+        'Plan de communication',
+        'Formation & coaching',
+        'Gestion des résistances',
+        'Mesure de l\'adoption'
+      ]
     },
     {
-      number: '04',
-      title: 'Développement Business',
       icon: TrendingUp,
-      items: [
-        'Stratégies Go-to-Market B2B',
-        'Marketing ABM (Account Based Marketing)',
-        'Développement de partenariats & alliances',
-        'Nouveaux modèles économiques'
-      ],
-      gradient: 'from-orange-500 to-red-500'
+      title: 'Business Development',
+      description: 'Développement commercial et croissance accélérée des revenus',
+      deliverables: [
+        'Stratégies GTM',
+        'Partenariats stratégiques',
+        'Marketing B2B',
+        'Expansion de marché'
+      ]
     },
     {
-      number: '05',
-      title: 'Interim Management',
       icon: Briefcase,
-      items: [
-        'Direction de la Transformation / CDO',
-        'Management de transition critique',
-        'Pilotage de projets stratégiques',
-        'Advisory Board & Mentoring C-Level'
-      ],
-      gradient: 'from-indigo-500 to-purple-500'
+      title: 'Interim Management',
+      description: 'Leadership opérationnel pour gérer les phases critiques',
+      deliverables: [
+        'Direction de programmes',
+        'Management de transition',
+        'Pilotage PMO',
+        'Delivery & qualité'
+      ]
     }
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 }
-    }
-  }
+  ];
 
   return (
-    <section id="services" className="section-container relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+    <section id="services" className="bg-white py-20 md:py-28">
+      <div className="section-container">
+        {/* Section Header */}
+        <div className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-sm font-bold tracking-widest uppercase text-accent mb-4">
+              Offre de Services
+            </div>
+            <h2 className="heading-2 mb-6">
+              5 Piliers pour Votre Transformation Digitale
+            </h2>
+            <div className="h-1 w-20 bg-accent mb-6" />
+            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
+              Une expertise complète couvrant tous les aspects de la transformation digitale, 
+              de la stratégie à l'exécution.
+            </p>
+          </motion.div>
+        </div>
 
-      <div className="relative z-10">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="card-mbb group hover:shadow-lg"
+            >
+              {/* Header */}
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 p-4 bg-gray-50 group-hover:bg-accent/10 transition-colors">
+                  <service.icon className="w-8 h-8 text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Deliverables */}
+              <div className="space-y-2 pl-20">
+                <div className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">
+                  Livrables Clés
+                </div>
+                {service.deliverables.map((deliverable, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="mt-1.5 w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{deliverable}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ delay: 0.5 }}
+          className="mt-16 border-t-4 border-accent pt-12"
         >
-          <h2 className="heading-2 mb-4">
-            Offre de Services
-          </h2>
-          <p className="text-xl text-gray-600 font-light">
-            Accompagnement 360° pour votre transformation
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {services.map((service, index) => {
-            const Icon = service.icon
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -10, rotateY: 5 }}
-                className="group relative"
-              >
-                {/* Glow effect on hover */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500 rounded-3xl`}></div>
-                
-                <div className="relative card-glass h-full flex flex-col">
-                  {/* Number Badge */}
-                  <div className="absolute -top-4 -right-4 z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-300`}>
-                      <span className="text-2xl font-black text-white">{service.number}</span>
-                    </div>
-                  </div>
-
-                  {/* Icon */}
-                  <div className="mb-6">
-                    <div className={`inline-flex p-4 bg-gradient-to-br ${service.gradient} rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className={`text-2xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                    {service.title}
-                  </h3>
-
-                  {/* Items */}
-                  <ul className="space-y-4 flex-1">
-                    {service.items.map((item, idx) => (
-                      <motion.li
-                        key={idx}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="flex items-start gap-3 group/item"
-                      >
-                        <div className={`mt-1.5 w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient} flex-shrink-0 group-hover/item:scale-150 transition-transform`}></div>
-                        <span className="text-sm text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors">
-                          {item}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </ul>
-
-                  {/* Bottom decoration */}
-                  <div className={`mt-6 h-1 w-full bg-gradient-to-r ${service.gradient} rounded-full opacity-20 group-hover:opacity-100 transition-opacity`}></div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                Une Approche Personnalisée pour Chaque Client
+              </h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Chaque mission est unique. Je combine ces 5 piliers de manière flexible 
+                pour répondre précisément à vos enjeux et garantir le succès de votre projet.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="card-metric flex-1 min-w-[150px]">
+                  <div className="metric-value">50+</div>
+                  <div className="metric-label">Projets Livrés</div>
                 </div>
-              </motion.div>
-            )
-          })}
-        </motion.div>
+                <div className="card-metric flex-1 min-w-[150px]">
+                  <div className="metric-value">100%</div>
+                  <div className="metric-label">Satisfaction Client</div>
+                </div>
+              </div>
+            </div>
 
-        {/* Call to action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-block relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 opacity-20 blur-3xl"></div>
-            <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 text-white px-12 py-8 rounded-3xl shadow-2xl">
-              <p className="text-3xl font-bold mb-2">5 Piliers d'Intervention</p>
-              <p className="text-blue-100 text-lg">Pour une transformation complète et réussie</p>
+            <div className="bg-primary text-white p-10">
+              <h4 className="text-2xl font-bold mb-4">
+                Discutons de Votre Projet
+              </h4>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Réservez un premier échange pour analyser vos besoins et définir 
+                la meilleure approche pour votre transformation digitale.
+              </p>
+              <a 
+                href="#contact" 
+                className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 font-bold hover:bg-gray-100 transition-colors group"
+              >
+                Prendre Contact
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
