@@ -27,7 +27,7 @@ export default function Services() {
         'Solutions IA Générative & Automatisation',
         'FinOps & Optimisation des coûts'
       ],
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-purple-500 to-fuchsia-500'
     },
     {
       number: '03',
@@ -183,8 +183,8 @@ export default function Services() {
           className="mt-20 text-center"
         >
           <div className="inline-block relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-20 blur-3xl"></div>
-            <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-12 py-8 rounded-3xl shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 opacity-20 blur-3xl"></div>
+            <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 text-white px-12 py-8 rounded-3xl shadow-2xl">
               <p className="text-3xl font-bold mb-2">5 Piliers d'Intervention</p>
               <p className="text-blue-100 text-lg">Pour une transformation complète et réussie</p>
             </div>

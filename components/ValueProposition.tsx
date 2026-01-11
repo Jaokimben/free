@@ -73,13 +73,13 @@ export default function ValueProposition() {
       icon: '🛡️',
       title: 'Risques Maîtrisés',
       description: 'Sécurité "by design" & conformité',
-      color: 'from-purple-400 to-pink-600'
+      color: 'from-purple-400 to-fuchsia-600'
     },
     {
       icon: '👥',
       title: 'Équipes Engagées',
       description: 'Montée en compétences durable',
-      color: 'from-pink-400 to-rose-600'
+      color: 'from-fuchsia-400 to-purple-600'
     }
   ]
 
@@ -210,7 +210,7 @@ export default function ValueProposition() {
           transition={{ duration: 0.8 }}
           className="relative rounded-3xl p-12 overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-fuchsia-600 opacity-90"></div>
           <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="relative z-10">
