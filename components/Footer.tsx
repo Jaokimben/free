@@ -1,97 +1,137 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { Mail, Phone, Linkedin } from 'lucide-react'
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
+  const navItems = [
+    { name: 'Accueil', href: '#hero' },
+    { name: 'Proposition de Valeur', href: '#value' },
+    { name: 'Services', href: '#services' },
+    { name: 'Expérience', href: '#experience' },
+    { name: 'Références', href: '#success' },
+  ]
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* About */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Jalil Halim</h3>
-            <p className="text-gray-400 mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="mb-6">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                Jalil Halim
+              </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            </div>
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Expert en Transformation Digitale & IA, accompagnant les entreprises dans leur croissance par l'innovation.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://linkedin.com/in/jalilhalim"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+            <motion.a
+              href="https://linkedin.com/in/jalilhalim"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-blue-500/50"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6" />
+            </motion.a>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Liens Rapides</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#hero" className="text-gray-400 hover:text-white transition-colors">
-                  Accueil
-                </a>
-              </li>
-              <li>
-                <a href="#value" className="text-gray-400 hover:text-white transition-colors">
-                  Proposition de Valeur
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-400 hover:text-white transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#experience" className="text-gray-400 hover:text-white transition-colors">
-                  Expérience
-                </a>
-              </li>
-              <li>
-                <a href="#success" className="text-gray-400 hover:text-white transition-colors">
-                  Références
-                </a>
-              </li>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h4 className="text-xl font-bold mb-6 text-white">Liens Rapides</h4>
+            <ul className="space-y-3">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <a
+                    href={item.href}
+                    className="text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <span className="w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-4 transition-all duration-300"></span>
+                    {item.name}
+                  </a>
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Contact</h4>
-            <ul className="space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h4 className="text-xl font-bold mb-6 text-white">Contact</h4>
+            <ul className="space-y-4">
               <li>
-                <a 
+                <a
                   href="mailto:jalilsanad.halim@gmail.com"
-                  className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                  className="text-gray-300 hover:text-white transition-colors flex items-center gap-3 group"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  jalilsanad.halim@gmail.com
+                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-blue-600 transition-colors">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm">jalilsanad.halim@gmail.com</span>
                 </a>
               </li>
               <li>
-                <a 
+                <a
                   href="tel:+33628071012"
-                  className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                  className="text-gray-300 hover:text-white transition-colors flex items-center gap-3 group"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  06 28 07 10 12
+                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-blue-600 transition-colors">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm">06 28 07 10 12</span>
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} Jalil Halim. Tous droits réservés.</p>
-          <p className="mt-2 text-sm">Expert en Transformation Digitale & IA</p>
-        </div>
+        {/* Bottom bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="border-t border-white/10 pt-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm text-center md:text-left">
+              &copy; {currentYear} Jalil Halim. Tous droits réservés.
+            </p>
+            <p className="text-gray-400 text-sm text-center md:text-right">
+              Expert en Transformation Digitale & IA
+            </p>
+          </div>
+        </motion.div>
       </div>
     </footer>
   )

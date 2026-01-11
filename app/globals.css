@@ -4,25 +4,40 @@
   --color-primary: #0066cc;
   --color-secondary: #1e3a8a;
   --color-accent: #f59e0b;
+  --color-gradient-start: #667eea;
+  --color-gradient-end: #764ba2;
 }
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 text-gray-900;
+    background-attachment: fixed;
+  }
+  
+  * {
+    @apply scroll-smooth;
   }
 }
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
   }
   
   .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .heading-2 {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    background: linear-gradient(135deg, #0066cc 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .heading-3 {
@@ -30,14 +45,66 @@
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-6 
+           hover:shadow-2xl transition-all duration-500 
+           border border-gray-100/50 hover:border-blue-200/50
+           hover:-translate-y-2;
+  }
+  
+  .card-glass {
+    @apply bg-white/60 backdrop-blur-2xl rounded-2xl shadow-2xl p-8
+           border border-white/20 hover:border-blue-300/30
+           transition-all duration-500 hover:-translate-y-2 hover:shadow-blue-500/20;
   }
   
   .btn-primary {
-    @apply bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+    @apply relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 
+           hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-10 
+           rounded-xl transition-all duration-300 transform hover:scale-105 
+           shadow-lg hover:shadow-2xl hover:shadow-blue-500/50;
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-primary border-2 border-primary font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md;
+    @apply relative overflow-hidden bg-white/90 backdrop-blur-sm hover:bg-white 
+           text-blue-600 border-2 border-blue-600 font-bold py-4 px-10 
+           rounded-xl transition-all duration-300 transform hover:scale-105 
+           shadow-lg hover:shadow-xl;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .animated-gradient {
+    background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #667eea);
+    background-size: 800% 800%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .glow {
+    @apply shadow-2xl;
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
   }
 }
