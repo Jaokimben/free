@@ -1,132 +1,209 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Building2, TrendingUp, Users, Award } from 'lucide-react';
+
 export default function SuccessStories() {
   const stories = [
     {
       company: 'Bouygues Télécom',
-      subtitle: 'Opérateur Majeur (€7Mds CA)',
-      focus: 'Accélération B2B',
-      role: 'Directeur Marketing Grands Comptes',
-      period: '2020 - 2022',
-      actions: [
-        'Refonte complète de la stratégie marketing B2B & segmentation',
-        'Déploiement approche ABM (Account-Based Marketing)',
-        'Management d\'une équipe multidisciplinaire de 30 personnes',
-        'Optimisation du parcours client digital'
+      sector: 'Télécoms & 5G',
+      role: 'Head of Business Development B2B & 5G',
+      challenge: 'Accélérer la monétisation des services 5G B2B et développer le portefeuille entreprise dans un marché ultra-compétitif.',
+      solution: [
+        'Élaboration d\'une stratégie GTM 5G B2B complète',
+        'Mise en place d\'une équipe dédiée Smart Cities & IoT',
+        'Création de partenariats stratégiques avec écosystème tech',
+        'Développement de business cases sectoriels (industrie, santé, logistique)'
       ],
-      impact: {
-        metric: 'x2',
-        label: 'Part de marché sur le segment B2B'
-      },
-      color: 'blue'
+      results: [
+        { metric: 'x2', label: 'Part de marché B2B' },
+        { metric: '+40%', label: 'Pipeline commercial' },
+        { metric: '15+', label: 'Partenariats stratégiques' }
+      ],
+      duration: '2019 - 2023'
     },
     {
       company: 'Kyndryl',
-      subtitle: 'Infra Services Global (€19Mds)',
-      focus: 'Transformation',
-      role: 'Partenaire Conseil Transformation',
-      period: '2022 - Présent',
-      actions: [
-        'Conseil stratégique post spin-off IBM',
-        'Modernisation des infrastructures critiques (Énergie, Public)',
-        'Intégration de la cybersécurité "by design"',
-        'Optimisation du parcours client digital'
+      sector: 'Services IT & Cloud',
+      role: 'Senior Sales Leader - Secteurs Énergie & Public',
+      challenge: 'Transformer l\'approche commerciale post-spin-off IBM et développer de nouvelles offres cloud natives dans les secteurs régulés.',
+      solution: [
+        'Refonte complète de la stratégie commerciale sectorielle',
+        'Modernisation du portefeuille d\'offres (Cloud, IA, Cybersécurité)',
+        'Structuration d\'équipes commerciales spécialisées',
+        'Implémentation de méthodologies Account-Based Marketing'
       ],
-      impact: {
-        metric: '+20%',
-        label: 'Croissance CA liée à la réorganisation'
-      },
-      color: 'green'
+      results: [
+        { metric: '+25%', label: 'Croissance revenus' },
+        { metric: '20+', label: 'Grands comptes signés' },
+        { metric: '100%', label: 'Conformité NIS2' }
+      ],
+      duration: '2023 - Présent'
     },
     {
       company: 'OpenCell',
-      subtitle: 'Scale-up SaaS (BSS/OSS)',
-      focus: 'Développement',
-      role: 'VP Partenariats & Alliances',
-      period: '2018 - 2020',
-      actions: [
-        'Création et structuration de l\'écosystème partenaires',
-        'Définition de la stratégie Go-to-Market indirecte',
-        'Accompagnement C-Level & Change Management',
-        'Programmes d\'enablement technique et commercial',
-        'Négociation d\'alliances stratégiques européennes'
+      sector: 'SaaS & Cloud Native',
+      role: 'Senior Strategic Advisor',
+      challenge: 'Accélérer la scale-up d\'une solution SaaS de billing télécoms et pénétrer de nouveaux marchés internationaux.',
+      solution: [
+        'Définition de la stratégie d\'expansion européenne',
+        'Optimisation du modèle commercial et pricing',
+        'Structuration des partenariats avec opérateurs et intégrateurs',
+        'Mise en place de processus de vente scalables'
       ],
-      impact: {
-        metric: '+25%',
-        label: 'Augmentation des revenus partenaires'
-      },
-      color: 'purple'
+      results: [
+        { metric: '+25%', label: 'Revenus annuels' },
+        { metric: '5', label: 'Nouveaux pays' },
+        { metric: '10+', label: 'Clients stratégiques' }
+      ],
+      duration: '2021 - 2023'
     }
-  ]
-
-  const getColorClasses = (color: string) => {
-    const colors: { [key: string]: string } = {
-      blue: 'from-blue-600 to-blue-800',
-      green: 'from-green-600 to-green-800',
-      purple: 'from-purple-600 to-purple-800'
-    }
-    return colors[color]
-  }
+  ];
 
   return (
-    <section id="success" className="section-container bg-gray-50">
-      <div className="text-center mb-16">
-        <h2 className="heading-2 mb-4 text-gray-900">
-          Références & Success Stories
-        </h2>
-        <p className="text-xl text-gray-600">
-          Des résultats mesurables dans des contextes complexes
-        </p>
-      </div>
-
-      <div className="space-y-8">
-        {stories.map((story, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+    <section id="success-stories" className="bg-light py-20 md:py-28">
+      <div className="section-container">
+        {/* Section Header */}
+        <div className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <div className={`bg-gradient-to-r ${getColorClasses(story.color)} text-white p-6 md:p-8`}>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="text-sm font-bold tracking-widest uppercase text-accent mb-4">
+              Success Stories
+            </div>
+            <h2 className="heading-2 mb-6">
+              Des Transformations Mesurables chez des Leaders du Marché
+            </h2>
+            <div className="h-1 w-20 bg-accent mb-6" />
+            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
+              Retours d'expérience de missions stratégiques ayant généré un impact business significatif 
+              et mesurable pour des organisations de premier plan.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Stories */}
+        <div className="space-y-12">
+          {stories.map((story, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="card-mbb hover:shadow-lg"
+            >
+              {/* Header */}
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-gray-50">
+                    <Building2 className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      {story.company}
+                    </h3>
+                    <div className="text-sm text-gray-600 mb-2">{story.sector}</div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-white text-xs font-semibold">
+                      <Award className="w-3 h-3" />
+                      {story.role}
+                    </div>
+                  </div>
+                </div>
+                <div className="text-sm font-semibold text-accent">
+                  {story.duration}
+                </div>
+              </div>
+
+              {/* Content Grid */}
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Challenge & Solution */}
+                <div className="lg:col-span-2 space-y-6">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="h-1 w-8 bg-accent" />
+                      <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700">
+                        Contexte & Enjeux
+                      </h4>
+                    </div>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {story.challenge}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="h-1 w-8 bg-accent" />
+                      <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700">
+                        Approche & Actions Clés
+                      </h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {story.solution.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="mt-1.5 w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                          <span className="text-sm text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Results */}
                 <div>
-                  <h3 className="text-3xl font-bold mb-2">{story.company}</h3>
-                  <p className="text-lg opacity-90 mb-1">{story.subtitle} • {story.focus}</p>
-                  <p className="font-semibold">{story.role}</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg text-center">
-                  <p className="text-sm font-semibold opacity-90">Période</p>
-                  <p className="text-lg font-bold">{story.period}</p>
+                  <div className="flex items-center gap-2 mb-4">
+                    <TrendingUp className="w-4 h-4 text-success" />
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700">
+                      Résultats Mesurés
+                    </h4>
+                  </div>
+                  <div className="space-y-4">
+                    {story.results.map((result, idx) => (
+                      <div key={idx} className="card-metric">
+                        <div className="text-3xl font-bold text-success mb-1">
+                          {result.metric}
+                        </div>
+                        <div className="text-xs font-semibold text-gray-600 uppercase tracking-wide">
+                          {result.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
+          ))}
+        </div>
 
-            <div className="p-6 md:p-8">
-              <div className="mb-6">
-                <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="text-2xl">🎯</span>
-                  ACTIONS CLÉS
-                </h4>
-                <ul className="space-y-2">
-                  {story.actions.map((action, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-primary text-xl font-bold mt-0.5">•</span>
-                      <span className="text-gray-700">{action}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6 border-l-4 border-accent">
-                <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-2xl">📊</span>
-                  IMPACT BUSINESS
-                </h4>
-                <div className="flex items-center gap-4">
-                  <div className="text-5xl font-bold text-primary">{story.impact.metric}</div>
-                  <div className="text-gray-700 font-semibold">{story.impact.label}</div>
-                </div>
-              </div>
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-block border-4 border-accent p-8">
+            <div className="flex items-center gap-3 justify-center mb-4">
+              <Users className="w-6 h-6 text-accent" />
+              <h3 className="text-2xl font-bold text-gray-900">
+                Prêt à Générer des Résultats Similaires?
+              </h3>
             </div>
+            <p className="text-gray-600 mb-6">
+              Discutons de votre projet et des opportunités de transformation.
+            </p>
+            <a href="#contact" className="btn-primary">
+              Planifier un Échange
+            </a>
           </div>
-        ))}
+        </motion.div>
       </div>
     </section>
-  )
+  );
 }
