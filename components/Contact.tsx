@@ -39,7 +39,7 @@ export default function Contact() {
       title: 'Téléphone',
       value: '06 28 07 10 12',
       href: 'tel:+33628071012',
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-purple-500 to-fuchsia-500'
     },
     {
       icon: Linkedin,
@@ -124,7 +124,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <div className="card-glass p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent">
                 Envoyez un Message
               </h3>
 

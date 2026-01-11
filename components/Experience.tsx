@@ -30,8 +30,8 @@ export default function Experience() {
       ],
       metric: '+25%',
       metricLabel: 'Revenus',
-      gradient: 'from-purple-500 to-pink-500',
-      bgGradient: 'from-purple-50 to-pink-50'
+      gradient: 'from-purple-500 to-fuchsia-500',
+      bgGradient: 'from-purple-50 to-fuchsia-50'
     },
     {
       icon: Zap,

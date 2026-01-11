@@ -55,7 +55,7 @@ export default function Hero() {
         variants={floatingVariants}
         animate="animate"
         style={{ animationDelay: '2s' }}
-        className="absolute -bottom-8 left-40 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
+        className="absolute -bottom-8 left-40 w-72 h-72 bg-fuchsia-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
       />
 
       <div className="section-container text-center relative z-10">
@@ -81,7 +81,7 @@ export default function Hero() {
           </motion.h1>
           
           <motion.div variants={itemVariants} className="relative">
-            <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent">
               EXPERT EN TRANSFORMATION DIGITALE & IA
             </div>
           </motion.div>
