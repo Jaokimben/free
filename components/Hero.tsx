@@ -6,9 +6,9 @@ import { ArrowRight, TrendingUp, Users, Lightbulb } from 'lucide-react';
 
 export default function Hero() {
   const metrics = [
-    { value: '15+', label: 'Années d\'Expérience' },
-    { value: '50+', label: 'Projets Réalisés' },
-    { value: 'x2', label: 'Croissance Moyenne' }
+    { value: '24+', label: 'Années d\'Expérience' },
+    { value: '8', label: 'Postes de Leadership' },
+    { value: '€M+', label: 'Revenue Generated' }
   ];
 
   const pillars = [
@@ -34,7 +34,7 @@ export default function Hero() {
             {/* Subtitle */}
             <div className="inline-block">
               <div className="text-sm font-bold tracking-widest uppercase text-accent mb-2">
-                Expert en Transformation Digitale & IA
+                Transformation Advisory Director
               </div>
               <div className="h-1 w-20 bg-accent" />
             </div>
@@ -45,8 +45,8 @@ export default function Hero() {
             </h1>
             
             <div className="text-2xl md:text-3xl font-light text-gray-700 leading-relaxed">
-              Accélérez votre transformation digitale avec une expertise 
-              <span className="font-semibold text-primary"> éprouvée en stratégie, IA et innovation</span>
+              Executive leader specialising in
+              <span className="font-semibold text-primary"> digital transformation, business development, and strategic innovation</span> across telecommunications, technology, utilities, and public sectors.
             </div>
 
             {/* Key Pillars */}
