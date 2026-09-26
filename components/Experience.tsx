@@ -1,11 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, TrendingUp, Globe } from 'lucide-react';
 
 export default function Experience() {
   const [language, setLanguage] = useState<'en' | 'fr'>('en');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('site-language') as 'en' | 'fr';
+    if (saved) setLanguage(saved);
+  }, []);
+
+  const handleLanguageChange = (lang: 'en' | 'fr') => {
+    setLanguage(lang);
+    localStorage.setItem('site-language', lang);
+  };
 
   const positions = {
     en: [
@@ -243,7 +253,7 @@ export default function Experience() {
             <div className="flex justify-end mb-8">
               <div className="inline-flex items-center gap-2 p-1 bg-white border border-gray-200">
                 <button
-                  onClick={() => setLanguage('en')}
+                  onClick={() => handleLanguageChange('en')}
                   className={`px-4 py-2 text-sm font-semibold transition-colors ${
                     language === 'en'
                       ? 'bg-primary text-white'
@@ -254,7 +264,7 @@ export default function Experience() {
                   EN
                 </button>
                 <button
-                  onClick={() => setLanguage('fr')}
+                  onClick={() => handleLanguageChange('fr')}
                   className={`px-4 py-2 text-sm font-semibold transition-colors ${
                     language === 'fr'
                       ? 'bg-primary text-white'
