@@ -5,8 +5,8 @@ import { Mail, Phone, Linkedin, Award, ExternalLink } from 'lucide-react';
 
 export default function Footer() {
   const certifications = [
-    'Generative AI / LLMs (2025)',
-    'CISM Cybersecurity Management (2024)',
+    'Generative AI / Stanford Online (2026)',
+    'CISM Cybersecurity Management (2025)',
     'Safe Agilist Certification (2023)',
     'Prince II Project Management (2022)',
     'Blockchain Tech – BerkeleyX (2021)',

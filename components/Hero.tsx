@@ -6,8 +6,8 @@ import { ArrowRight, TrendingUp, Users, Lightbulb } from 'lucide-react';
 
 export default function Hero() {
   const metrics = [
-    { value: '24+', label: 'Années d\'Expérience' },
-    { value: '8', label: 'Postes de Leadership' },
+    { value: '25+', label: 'Years Experience' },
+    { value: '9', label: 'Leadership Roles' },
     { value: '€M+', label: 'Revenue Generated' }
   ];
 
