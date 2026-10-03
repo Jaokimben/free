@@ -30,7 +30,7 @@ export default function Experience() {
           'Structuring co-selling, marketplace and partner enablement programs across hyperscalers',
           'Managing channel governance, profitability, commercial agreements and co-marketing initiatives'
         ],
-        metrics: { value: '€M+', label: 'Target Revenue' }
+        metrics: { value: 'Millions', label: 'Euros Target' }
       },
       {
         title: 'Advisory Partner',
@@ -43,7 +43,7 @@ export default function Experience() {
           'Supported key accounts in their digital transformation',
           'Advised on new technologies: GenAI, Cloud Native, DevOps, FinOps, SRE'
         ],
-        metrics: { value: '€M+', label: 'Sales Generated' }
+        metrics: { value: 'Millions', label: 'Euros Generated' }
       },
       {
         title: 'Head of Marketing and Sales',
@@ -111,7 +111,7 @@ export default function Experience() {
           'Launched new products generating millions of euros in revenue',
           'Analysed the market and established specific sales strategies for direct and indirect channels'
         ],
-        metrics: { value: '€M+', label: 'Product Revenue' }
+        metrics: { value: 'Millions', label: 'Euros Revenue' }
       },
       {
         title: 'Architect and Infrastructure Project Manager',
@@ -123,7 +123,7 @@ export default function Experience() {
           'Transformed infrastructure to support innovative services (TV/VoD)',
           'Managed large infrastructure transformation projects generating multi-million euro savings'
         ],
-        metrics: { value: '€M+', label: 'Cost Savings' }
+        metrics: { value: 'Millions', label: 'Euros Savings' }
       }
     ],
     fr: [
@@ -138,7 +138,7 @@ export default function Experience() {
           'Structuration de programmes de co-vente, de marketplace et d\'activation des partenaires auprès des hyperscalers',
           'Pilotage de la gouvernance du channel, de sa rentabilité, des accords commerciaux et des initiatives de co-marketing'
         ],
-        metrics: { value: '€M+', label: 'Objectif CA' }
+        metrics: { value: 'Millions', label: 'd\'Euros Objectif' }
       },
       {
         title: 'Partenaire Conseil',
@@ -151,7 +151,7 @@ export default function Experience() {
           'Accompagnement des grands comptes dans leur transformation digitale',
           'Conseil sur les nouvelles technologies: GenAI, Cloud Native, DevOps, FinOps, SRE'
         ],
-        metrics: { value: '€M+', label: 'Ventes Générées' }
+        metrics: { value: 'Millions', label: 'd\'Euros Générés' }
       },
       {
         title: 'Responsable Marketing et Ventes',
@@ -219,7 +219,7 @@ export default function Experience() {
           'Lancement de nouveaux produits générant des millions d\'euros',
           'Analyse du marché et vente spécifiques en fonction du canal direct et indirect'
         ],
-        metrics: { value: '€M+', label: 'CA Produits' }
+        metrics: { value: 'Millions', label: 'd\'Euros Produits' }
       },
       {
         title: 'Architecte et Chef de Projet Infrastructure',
@@ -231,7 +231,7 @@ export default function Experience() {
           'Transformation des infrastructures pour soutenir des services innovants (TV/VoD)',
           'Gestion de grands projets générant des économies de plusieurs millions d\'euros'
         ],
-        metrics: { value: '€M+', label: 'Économies' }
+        metrics: { value: 'Millions', label: 'd\'Euros Économies' }
       }
     ]
   };
