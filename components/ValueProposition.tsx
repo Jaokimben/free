@@ -51,8 +51,8 @@ export default function ValueProposition() {
           icon: Shield,
           title: 'Controlled Risks',
           description: 'Proven approach on 50+ strategic projects',
-          metric: '100%',
-          label: 'Compliance'
+          metric: '50+',
+          label: 'Projects'
         },
         {
           icon: Zap,
@@ -104,8 +104,8 @@ export default function ValueProposition() {
           icon: Shield,
           title: 'Risques Maîtrisés',
           description: 'Approche éprouvée sur 50+ projets stratégiques',
-          metric: '100%',
-          label: 'Conformité'
+          metric: '50+',
+          label: 'Projets'
         },
         {
           icon: Zap,

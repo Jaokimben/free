@@ -31,7 +31,7 @@ export default function Hero() {
       metrics: [
         { value: '25+', label: 'Years Experience' },
         { value: '9', label: 'Leadership Roles' },
-        { value: 'Millions', label: 'Euros Revenue' }
+        { value: 'M€', label: 'Revenue' }
       ],
       valueProposition: {
         title: 'Structured Approach & Measurable Results',
@@ -63,7 +63,7 @@ export default function Hero() {
       metrics: [
         { value: '25+', label: 'Années d\'Expérience' },
         { value: '9', label: 'Rôles de Leadership' },
-        { value: 'Millions', label: 'Euros de Revenus' }
+        { value: 'M€', label: 'Revenus' }
       ],
       valueProposition: {
         title: 'Approche Structurée & Résultats Mesurables',
